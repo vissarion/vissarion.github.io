@@ -16,22 +16,22 @@ function navigation(page)
 	document.write('			<tr>');
 	switch(page) {
 		case 1: 
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/1.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/1.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 		case 2:
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/5.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/5.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 		case 3:
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/3.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/3.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 		case 4:
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/4.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/4.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 		case 5:
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/2.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/2.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
                default:
-			document.write('			<td class="img"><img src="http://homepages.ulb.ac.be/~vfisikop/images/3.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
+			document.write('			<td class="img"><img src="images/3.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 	}
 	document.write('			<td class="info">');
@@ -46,11 +46,11 @@ function navigation(page)
 	document.write('<!-- navigation starts-->');	
 	document.write('<div id="menu">');
 	document.write('<ul>');
-	document.write('<li><a href="http://homepages.ulb.ac.be/~vfisikop" ', current1,'>Home</a></li>');
-	document.write('<li><a href="http://homepages.ulb.ac.be/~vfisikop/publications.html" ', current2, '>Publications</a></li>');
-	document.write('<li><a href="http://homepages.ulb.ac.be/~vfisikop/software.html" ', current3, '>Software</a></li>');
-  document.write('<li><a href="http://homepages.ulb.ac.be/~vfisikop/data.html" ', current4, '>Data</a></li>');
-	document.write('<li><a href="http://homepages.ulb.ac.be/~vfisikop/other.html" ', current5, '>Other</a></li>');
+	document.write('<li><a href="index.html" ', current1,'>Home</a></li>');
+	document.write('<li><a href="publications.html" ', current2, '>Publications</a></li>');
+	document.write('<li><a href="software.html" ', current3, '>Software</a></li>');
+  document.write('<li><a href="data.html" ', current4, '>Data</a></li>');
+	document.write('<li><a href="other.html" ', current5, '>Other</a></li>');
 	document.write('</ul>');
 	document.write('<!-- navigation ends-->	');
 	document.write('</div>');
