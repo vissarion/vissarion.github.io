@@ -15,8 +15,8 @@ function navigation(page)
 	document.write('<!-- navigation starts-->');	
 	document.write('<div id="menu2">');
 	document.write('<ul>');
-	document.write('<li><a href="data/resultant.html" ', current1,'>resultant</a></li>');
-	document.write('<li><a href="data/2-level.html" ', current2, '>2-level</a></li>');
+	document.write('<li><a href="resultant.html" ', current1,'>resultant</a></li>');
+	document.write('<li><a href="2-level.html" ', current2, '>2-level</a></li>');
 	document.write('</ul>');
 	document.write('<!-- navigation ends-->	');
 	document.write('</div>');
