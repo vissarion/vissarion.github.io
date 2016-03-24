@@ -1,0 +1,65 @@
+body {
+	background: #E2DDD9;
+	font: small/1.5em "Trebuchet MS", Helvetica, Verdana, sans-serif;
+	color: #6B4F2E; 
+	margin: 1em 1em;	
+	width: 95%;
+	height: 100%;
+}
+
+/* links */
+a { font-weight: bold; background: inherit; color: #993333; text-decoration: none; }
+a:hover { background: inherit; color: #006699; text-decoration: underline; }
+/*a:visited {	color: #B5AD55;}*/
+
+/***************************************************************/
+/* table with experiments */
+#experiments {
+	padding-right: 1em;
+	padding-left: 1em;
+	margin-right: 1em;
+	background: #FFF;
+	width: 100%;
+	/*background: #FFFFFF;*/
+}
+#experiments th {
+	font: bold 1.1em/120% Verdana, Arial, Helvetica, sans-serif;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	font-variant: small-caps;
+	color: #047;
+	background: #E5E5E5;
+	font-weight: bold;
+}
+#experiments th.run {
+	font: small/1.8em "Verdana", Helvetica, "Trebuchet MS", sans-serif;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	font-variant: small-caps;
+	color: #44A644;
+	background: #E5E5E5;
+	font-weight: bold;
+}
+#experiments td {
+	font: small/1.8em "Verdana", Helvetica, "Trebuchet MS", sans-serif;
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em; 
+	background: #FFFFFF; 
+	text-align: center;
+}
+#experiments td.topcom {
+	font: small/1.8em "Verdana", Helvetica, "Trebuchet MS", sans-serif;
+	padding-right: 1em;
+	padding-left: 1em;
+	background: #E8C380; 
+	text-align: center;
+}
+#experiments td.halt {
+	font: small/1.8em "Verdana", Helvetica, "Trebuchet MS", sans-serif;
+	padding-right: 1em;
+	padding-left: 1em; 
+	color: #F11212;
+	text-align: center;
+}
+
