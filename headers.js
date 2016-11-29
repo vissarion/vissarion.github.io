@@ -53,7 +53,7 @@ function navigation(page)
 	document.write('<li><a href="publications.html" ', current2, '>Publications</a></li>');
 	document.write('<li><a href="software.html" ', current3, '>Software</a></li>');
     document.write('<li><a href="data.html" ', current4, '>Data</a></li>');
-	document.write('<li><a href="other.html" ', current5, '>Other</a></li>');
+	//document.write('<li><a href="other.html" ', current5, '>Other</a></li>');
 	document.write('</ul>');
 	document.write('<!-- navigation ends-->	');
 	document.write('</div>');
