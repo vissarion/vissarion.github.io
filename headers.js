@@ -11,11 +11,11 @@ function navigation(page)
 		case 7: var current7='id="current"'; break;
 		default: document.write('javascript error');
 	}
-	document.write('<div id="header">');
+	/*document.write('<div id="header">');
 	document.write('		<table>');
 	document.write('			<tr>');
-	switch(page) {
-		case 1: 
+	switch(page) {		
+        case 1: 
 			document.write('			<td class="img"><img src="images/1.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
 		case 2:
@@ -33,16 +33,19 @@ function navigation(page)
                default:
 			document.write('			<td class="img"><img src="images/3.jpg" width="80" height="80" alt="photo" class="float-left" /></td>');
 			break;
-	}
-	document.write('			<td class="info">');
-	document.write('			<h2>Vissarion Fisikopoulos &nbsp::&nbsp <a href="http://www.ulb.ac.be/di/algo">ULB - Algorithms Research Group</a></h2><hr/>');
-	document.write('			');
-	document.write('			<i>address</i>:  D&eacute;partement d\' Informatique, ULB CP 212, Bvd. du Triomphe, 1050 Bruxelles<br/>');
-	document.write('			<i>email</i>: vfisikop [at] ulb [dot] ac [anotherdot] be<br/>');
-	document.write('			</td>');
-	document.write('			</tr>');
-	document.write('		</table>');
-	document.write('	</div>'); 
+	}*/
+	//document.write('			<td class="info">');
+	//document.write('			<h2>Vissarion Fisikopoulos &nbsp::&nbsp Computer Engineer &amp; Research Scientist</h2>');
+	//document.write('            <a href="http://dblp.uni-trier.de/pers/hd/f/Fisikopoulos:Vissarion.html"><img src="images/dblp.png" width="60" height="60" alt="photo" class="float-left" /></a>');
+    //document.write('            <a href="https://scholar.google.gr/citations?user=Tro-X7MAAAAJ"><img src="images/scholar.png" width="60" height="60" alt="photo" class="float-left" /></a>');
+    //document.write('            <a href="https://github.com/vissarion"><img src="images/GitHub.png" width="60" height="60" alt="photo" class="float-left" /></a>');
+    //document.write('            <a href="https://www.linkedin.com/public-profile/settings?trk=prof-edit-edit-public_profile"><img src="images/linkedin-logo.png" width="60" height="60" alt="photo" class="float-left" /></a>');
+    //document.write('			<i>email</i>: vissarion.fysikopoulos [at] oracle [dot] com &amp; vfisikop [at] di [dot] uoa [dot] gr');
+   	//document.write('			<i>location</i>:  Athens, Greece<br/>');
+    //document.write('			</td>');
+	//document.write('			</tr>');
+	//document.write('		</table>');
+	//document.write('	</div>'); 
 	document.write('<!-- navigation starts-->');	
 	document.write('<div id="menu">');
 	document.write('<ul>');
