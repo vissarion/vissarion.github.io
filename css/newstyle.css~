@@ -1,6 +1,6 @@
 body {
 	background: #E2DDD9;
-	font: 10pt/1.5em "Trebuchet MS", Helvetica, Verdana, sans-serif;
+	font: 12pt/1.5em "Trebuchet MS", Helvetica, Verdana, sans-serif;
 	color: #6B4F2E; 
 	margin: 1em 3.5em;	
 	width: 90%;
@@ -10,7 +10,7 @@ body {
 /**************************************************************************/
 
 /* links */
-a { font-weight: bold; background: inherit; color: #0F6111; text-decoration: none; }
+a { font-weight: bold; background: inherit; color: #993333; text-decoration: none; }
 a:hover { background: inherit; color: #006699; text-decoration: underline; }
 /*a:visited {	color: #B5AD55;}*/
 
@@ -47,7 +47,7 @@ ul, ol {
 	padding-left: 2em;
 	padding-right: 2em;
 	border: none; 
-  	padding: 10px;
+  	padding: 0px;
 	background: #E0C80C; 
 }
 
@@ -91,7 +91,7 @@ ul, ol {
 #menu li a {
 	display: block;
 	padding: 5px 15px;
-	color: #ffcc00;	
+	color: #FFE300;	
 	text-decoration: none;	
 }
 #menu li a:hover {
@@ -100,6 +100,51 @@ ul, ol {
 }
 #menu li a#current  {
 	background: #993333;
+	color: #FFF;
+}
+
+/* HELP MENU */
+#menu2 {	
+	clear: both;
+	margin: 0; 
+	padding: 0px;
+	margin-top: -1em;
+	margin-left: 0.15em;
+	margin-right: 0.15em;
+	margin-bottom: 1em;		
+	width: 100%;	
+	height: 3em;	
+	background: #F7F7F2 /*url(wrap-bg.jpg) repeat-y*/;
+	float: left;
+}
+#menu2 ul {
+	font: bolder 14px 'Trebuchet MS', sans-serif;
+	width: 90%;
+	color: #FFF;
+	background-color: #F7F7F2;		 	
+	margin: 1px 1px;
+	padding: -2;
+	height: 2em;
+	display: inline;
+	float: left;	
+}
+#menu2 li {
+	float: left;
+	list-style: none;
+	padding: 10px;
+}
+#menu2 li a {
+	display: block;
+	padding: 2px 10px;
+	color: #0F6111;	
+	text-decoration: none;	
+}
+#menu2 li a:hover {
+	background: #168d19;
+	color: #FFF;
+}
+#menu2 li a#current  {
+	background: #0000b3;
 	color: #FFF;
 }
 
@@ -125,6 +170,7 @@ ul, ol {
 }
 #menu-left ul.sidemenu a {
 	display:block;
+    text-align: center;
 	font-weight:normal;
 	color: #333;
 	height: 1.5em;	
@@ -217,7 +263,7 @@ ul, ol {
 #footer {
 	float: right;
 	clear: both;
-	width: 75.8%;
+	width: 100%;
 	margin: 0; padding: 12px 0px 0 0;
 	font: normal .92em/1.5em 'Trebuchet MS', Tahoma, Arial, sans-serif;
 	height: 45px;
@@ -226,6 +272,7 @@ ul, ol {
 }
 #footer p {
 	margin: 0; padding: 10px;
+	float: right;
 }
 
 #footer a {
@@ -276,8 +323,8 @@ ul, ol {
 #experiments {
 	padding-right: 1em;
 	padding-left: 1em;
-	margin-right: 0.15em;
-	background: #FFF url(../images/content.jpg) repeat-y;
+	margin-left: 0.15em;
+	background: #FFF;
 	/*background: #FFFFFF;*/
 }
 #experiments th {
@@ -290,10 +337,10 @@ ul, ol {
 	font-weight: bold;
 }
 #experiments td {
-	font: small/1.8em "Verdana", Helvetica, "Trebuchet MS", sans-serif;
+	font: small 1.1em/120% "Verdana", Helvetica, "Trebuchet MS", sans-serif;
 	padding-right: 1em;
 	padding-left: 1em;
-	padding-bottom: 1em; 
+	padding-bottom: .5em; 
 	background: #FFFFFF; 
 	text-align: center;
 }
@@ -329,6 +376,16 @@ float: left;
 .caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
 
 table{
+
+	border-collapse: collapse;
+	border: 0px solid #3f7c5f;
+	font: normal 100%/140% arial, verdana, helvetica, sans-serif;
+	color: #000; background: #fff;
+	margin-left: auto;
+   margin-right: auto;
+   margin-bottom:1em;
+}
+statustable{
 
 	border-collapse: collapse;
 	border: 2px solid #3f7c5f;
