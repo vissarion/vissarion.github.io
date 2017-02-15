@@ -40,7 +40,7 @@ function navigation(page)
     //document.write('            <a href="https://scholar.google.gr/citations?user=Tro-X7MAAAAJ"><img src="images/scholar.png" width="60" height="60" alt="photo" class="float-left" /></a>');
     //document.write('            <a href="https://github.com/vissarion"><img src="images/GitHub.png" width="60" height="60" alt="photo" class="float-left" /></a>');
     //document.write('            <a href="https://www.linkedin.com/public-profile/settings?trk=prof-edit-edit-public_profile"><img src="images/linkedin-logo.png" width="60" height="60" alt="photo" class="float-left" /></a>');
-    document.write('			<i>email</i>: vissarion [dot] fysikopoulos [at] oracle [dot] com<br/>');
+    document.write('			<i>email</i>: vissarion [dot] fisikopoulos [at] gmail [dot] com<br/>');
    	document.write('			<i>location</i>:  Athens, Greece<br/>');
     document.write('			</td>');
 	document.write('			</tr>');
