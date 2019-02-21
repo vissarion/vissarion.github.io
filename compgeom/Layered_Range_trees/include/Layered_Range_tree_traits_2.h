@@ -1,9 +1,8 @@
-// This work is licensed under the Creative Commons Attribution 3.0 Unported License
-// You are free to copy, distribute, transmit and adapt this work but you must attribute   
-// the authors of this work.
-// To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/
+// Layered Range Trees 
 //
-// Author  : Vissarion Fisikopoulos
+// Copyright (c) 2011 Vissarion Fisikopoulos
+//
+// Licensed under GNU LGPL.3, see LICENCE file
 
 //
 // a class with the definition of sample input data

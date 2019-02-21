@@ -1,3 +1,9 @@
+# Layered Range Trees 
+#
+# Copyright (c) 2011 Vissarion Fisikopoulos
+#
+# Licensed under GNU LGPL.3, see LICENCE file
+
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
