@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://vissarion.github.io/sitemap.xml

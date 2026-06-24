@@ -1,0 +1,285 @@
+<!-- Generator: GNU source-highlight 2.10
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><i><font color="#9A1900">"""</font></i>
+<i><font color="#9A1900">Programming Exercise 1</font></i>
+<i><font color="#9A1900">Fisikopoulos Vissarion (mpla)</font></i>
+<i><font color="#9A1900">In the current file there are the functions that we need for</font></i>
+<i><font color="#9A1900">a triangulation of a simple polygon as well as a test of a </font></i>
+<i><font color="#9A1900">triangulation. The code is, hopefully, well commented.</font></i>
+<i><font color="#9A1900">"""</font></i>
+<b><font color="#000080">import</font></b> CGAL
+<b><font color="#000080">import</font></b> cgalvisual
+<b><font color="#000080">import</font></b> math 
+
+<b><font color="#000080">from</font></b> CGAL <b><font color="#000080">import</font></b> <font color="#990000">*</font>
+<b><font color="#000080">from</font></b> cgalvisual <b><font color="#000080">import</font></b> <font color="#990000">*</font>
+
+<i><font color="#9A1900"># general computational geomerty functions</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">ccw</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">)</font> <font color="#990000">==</font> CGAL<font color="#990000">.</font>Kernel<font color="#990000">.</font>Sign<font color="#990000">.</font>LARGER
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">collinear</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">)</font> <font color="#990000">==</font> CGAL<font color="#990000">.</font>Kernel<font color="#990000">.</font>Sign<font color="#990000">.</font>EQUAL
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">)</font> <font color="#990000">==</font> CGAL<font color="#990000">.</font>Kernel<font color="#990000">.</font>Sign<font color="#990000">.</font>SMALLER
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">ccwon</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">ccw</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">)</font> <b><font color="#0000FF">or</font></b> <b><font color="#000000">collinear</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">)</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">between</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+    <b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> <b><font color="#000000">collinear</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>k<font color="#990000">):</font>
+        <b><font color="#0000FF">return</font></b> False
+    <b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+        s <font color="#990000">=</font> <b><font color="#000000">Segment_2</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">)</font>
+    <b><font color="#0000FF">return</font></b> s<font color="#990000">.</font><b><font color="#000000">has_on</font></b><font color="#990000">(</font>k<font color="#990000">)</font>
+
+<i><font color="#9A1900"># functions about lists</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">shift_left</font></b><font color="#990000">(</font>list<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns the list shifted left (cyclic)</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> list<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">:]+</font>list<font color="#990000">[:</font><font color="#993399">1</font><font color="#990000">]</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">shift_right</font></b><font color="#990000">(</font>list<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns the list shifted left (cyclic)</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> list<font color="#990000">[-</font><font color="#993399">1</font><font color="#990000">:]+</font>list<font color="#990000">[:-</font><font color="#993399">1</font><font color="#990000">]</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">is_in</font></b><font color="#990000">(</font>k<font color="#990000">,</font> list<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if k is in list</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">for</font></b> j <b><font color="#0000FF">in</font></b> list<font color="#990000">:</font>
+		<b><font color="#0000FF">if</font></b> j <font color="#990000">==</font> k<font color="#990000">:</font>
+			<b><font color="#0000FF">return</font></b> True
+	<b><font color="#0000FF">return</font></b> False
+	
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">min_index</font></b><font color="#990000">(</font>list<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns the index of the minimum in </font></i>
+<i><font color="#9A1900">	a list</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	min_index <font color="#990000">=</font> <font color="#993399">0</font>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>list<font color="#990000">)</font>
+	<b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">):</font>
+		<b><font color="#0000FF">if</font></b> <b><font color="#000000">min</font></b><font color="#990000">(</font>list<font color="#990000">[</font>i<font color="#990000">],</font>list<font color="#990000">[</font>min_index<font color="#990000">])</font> <font color="#990000">==</font> list<font color="#990000">[</font>i<font color="#990000">]:</font>
+			min_index <font color="#990000">=</font> i
+	<b><font color="#0000FF">return</font></b> min_index
+	
+<i><font color="#9A1900"># functions about how it looks like</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">points_label</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Labels n points with numbers from 0 to n-1 </font></i>
+<i><font color="#9A1900">	"""</font></i>
+	k<font color="#990000">=</font><font color="#993399">0</font>
+	<b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> points<font color="#990000">:</font>
+		i<font color="#990000">.</font>label <font color="#990000">=</font> `k`
+		k <font color="#990000">+=</font> <font color="#993399">1</font>
+
+<i><font color="#9A1900"># functions about simple polygon triangulation</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">is_simple</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the polygon given by the points is simple</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	<b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">):</font>
+		<b><font color="#0000FF">for</font></b> j <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">,</font>n<font color="#990000">):</font>
+			<i><font color="#9A1900"># if 2 not neighbour segments intersect		</font></i>
+			<b><font color="#0000FF">if</font></b> <b><font color="#000000">intersection</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">],</font>points<font color="#990000">[</font>j<font color="#990000">%</font>n<font color="#990000">],</font>points<font color="#990000">[(</font>j<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">])</font> <font color="#990000">\</font>
+			   <b><font color="#0000FF">and</font></b> <font color="#990000">(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n <font color="#990000">!=</font> j<font color="#990000">%</font>n <b><font color="#0000FF">and</font></b> i <font color="#990000">!=</font> <font color="#990000">(</font>j<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">:</font>
+				 <b><font color="#0000FF">return</font></b> False
+	<b><font color="#0000FF">return</font></b> True
+	
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">is_cw</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Takes the n points of a simple polygon</font></i>
+<i><font color="#9A1900">	and returns if they are cw oriented</font></i>
+<i><font color="#9A1900">	time complexity O(n)</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	min <font color="#990000">=</font> <b><font color="#000000">min_index</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>min<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">],</font> points<font color="#990000">[</font>min<font color="#990000">],</font> points<font color="#990000">[(</font>min<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">])</font>
+		
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">colinear</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segments (i1,j1) (i2,j2) </font></i>
+<i><font color="#9A1900">	are	colinear</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">)</font> <font color="#990000">\</font>
+	       <font color="#990000">==</font> CGAL<font color="#990000">.</font>Kernel<font color="#990000">.</font>Sign<font color="#990000">.</font>EQUAL <b><font color="#0000FF">and</font></b> <font color="#990000">\</font>
+		   <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>j2<font color="#990000">)</font> <font color="#990000">\</font>
+		   <font color="#990000">==</font> CGAL<font color="#990000">.</font>Kernel<font color="#990000">.</font>Sign<font color="#990000">.</font>EQUAL
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">intersectionExtended</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segments (i1,j1) (i2,j2)</font></i>
+<i><font color="#9A1900">	would intersect if (i1,j1) extented far</font></i>
+<i><font color="#9A1900">	enough</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">)</font> <font color="#990000">\</font>
+        <font color="#990000">!=</font> <b><font color="#000000">orientation</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>j2<font color="#990000">)</font> <font color="#990000">\</font>
+		<b><font color="#0000FF">or</font></b> <b><font color="#000000">colinear</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">)</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">colinearIntersection</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segments (i1,j1) intersect</font></i>
+<i><font color="#9A1900">	if (i1,j1) are colinear r</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">between</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">)</font> <b><font color="#0000FF">or</font></b> <b><font color="#000000">between</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>j2<font color="#990000">)</font>  
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">intersection</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segments (i1,j1) intersect </font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">if</font></b>  <b><font color="#000000">colinear</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">):</font>
+		<b><font color="#0000FF">return</font></b> <b><font color="#000000">colinearIntersection</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">)</font>
+	<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+		<b><font color="#0000FF">return</font></b> <b><font color="#000000">intersectionExtended</font></b><font color="#990000">(</font>i1<font color="#990000">,</font>j1<font color="#990000">,</font>i2<font color="#990000">,</font>j2<font color="#990000">)</font> <b><font color="#0000FF">and</font></b> <b><font color="#000000">intersectionExtended</font></b><font color="#990000">(</font>i2<font color="#990000">,</font>j2<font color="#990000">,</font>i1<font color="#990000">,</font>j1<font color="#990000">)</font>  
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">diagonalie</font></b><font color="#990000">(</font>i<font color="#990000">,</font> j<font color="#990000">,</font> points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segment from the point i to j</font></i>
+<i><font color="#9A1900">	do not intersect with other segments;</font></i>
+<i><font color="#9A1900">	that is an inner or an outer diagonial </font></i>
+<i><font color="#9A1900">	O(n) time complexity</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	<i><font color="#9A1900"># if (i,j) is a segment return False</font></i>
+	<b><font color="#0000FF">if</font></b> i <font color="#990000">==</font> j <b><font color="#0000FF">or</font></b> math<font color="#990000">.</font><b><font color="#000000">fabs</font></b><font color="#990000">(</font>i<font color="#990000">-</font>j<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">1</font> <b><font color="#0000FF">or</font></b> math<font color="#990000">.</font><b><font color="#000000">fabs</font></b><font color="#990000">(</font>i<font color="#990000">-</font>j<font color="#990000">)</font> <font color="#990000">==</font> n<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">:</font>
+		<b><font color="#0000FF">return</font></b> False
+	<b><font color="#0000FF">for</font></b> k <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">):</font>
+		<b><font color="#0000FF">if</font></b> <b><font color="#000000">intersection</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[</font>j<font color="#990000">],</font>points<font color="#990000">[</font>k<font color="#990000">],</font>points<font color="#990000">[(</font>k<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">])</font> <font color="#990000">\</font>
+		   <b><font color="#0000FF">and</font></b> k <font color="#990000">!=</font> i <b><font color="#0000FF">and</font></b> k <font color="#990000">!=</font> j <b><font color="#0000FF">and</font></b> <font color="#990000">(</font>k<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n <font color="#990000">!=</font> i <b><font color="#0000FF">and</font></b> <font color="#990000">(</font>k<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n <font color="#990000">!=</font> j<font color="#990000">:</font>
+			<b><font color="#0000FF">return</font></b> False
+	<b><font color="#0000FF">return</font></b> True
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">ear</font></b><font color="#990000">(</font>i<font color="#990000">,</font> points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the i-th of the points shapes an ear </font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">],</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">])</font> <font color="#990000">\</font>
+	    <font color="#990000">==</font> <b><font color="#000000">is_cw</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">incone</font></b><font color="#990000">(</font>i<font color="#990000">,</font> j<font color="#990000">,</font> points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the j-th of the points is inside the</font></i>
+<i><font color="#9A1900">	cone of the i-th point in O(1) time complexity</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	<b><font color="#0000FF">if</font></b> <b><font color="#000000">ear</font></b><font color="#990000">(</font>i<font color="#990000">,</font> points<font color="#990000">):</font>
+		<b><font color="#0000FF">return</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">],</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[</font>j<font color="#990000">])</font> <font color="#990000">\</font>
+		   <b><font color="#0000FF">and</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>j<font color="#990000">],</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">])</font>
+	<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+		<b><font color="#0000FF">return</font></b> <b><font color="#0000FF">not</font></b><font color="#990000">(</font><b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">],</font>points<font color="#990000">[</font>j<font color="#990000">],</font>points<font color="#990000">[</font>i<font color="#990000">])</font> <font color="#990000">\</font>
+		           <b><font color="#0000FF">and</font></b> <b><font color="#000000">cw</font></b><font color="#990000">(</font>points<font color="#990000">[</font>j<font color="#990000">],</font>points<font color="#990000">[(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">],</font>points<font color="#990000">[</font>i<font color="#990000">]))</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">diagonal</font></b><font color="#990000">(</font>i<font color="#990000">,</font> j<font color="#990000">,</font> points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Returns if the segment from the point i to j</font></i>
+<i><font color="#9A1900">	is an inner diagonial in O(n) time complexity</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">incone</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>points<font color="#990000">)</font> <b><font color="#0000FF">and</font></b> <b><font color="#000000">diagonalie</font></b><font color="#990000">(</font>i<font color="#990000">,</font>j<font color="#990000">,</font>points<font color="#990000">)</font>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">triangulate</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Return a triangulation of a simple polygon with n edges</font></i>
+<i><font color="#9A1900">	in O(n^3) time complexity</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	diags<font color="#990000">=[]</font>
+	<b><font color="#0000FF">while</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)&gt;</font><font color="#993399">3</font><font color="#990000">:</font>
+		n<font color="#990000">=</font><b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+		<b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">):</font>
+			i1<font color="#990000">=(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n
+			i2<font color="#990000">=(</font>i<font color="#990000">+</font><font color="#993399">2</font><font color="#990000">)%</font>n
+			<b><font color="#0000FF">if</font></b> <b><font color="#000000">diagonal</font></b><font color="#990000">(</font>i<font color="#990000">,</font>i2<font color="#990000">,</font>points<font color="#990000">):</font>
+				diags<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font><b><font color="#000000">VSegment_2</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i<font color="#990000">],</font>points<font color="#990000">[</font>i2<font color="#990000">]))</font>
+				<b><font color="#0000FF">del</font></b><font color="#990000">(</font>points<font color="#990000">[</font>i1<font color="#990000">])</font>
+				<b><font color="#0000FF">break</font></b>
+	<b><font color="#0000FF">return</font></b> diags
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">triangulate2</font></b><font color="#990000">(</font>points<font color="#990000">,</font> segments<font color="#990000">):</font>
+<i><font color="#9A1900">	"""</font></i>
+<i><font color="#9A1900">	Return a triangulation of a simple polygon with n edges</font></i>
+<i><font color="#9A1900">	in O(n^2) time complexity. All the used functions run in </font></i>
+<i><font color="#9A1900">	O(n) inside a for loop of O(n) complexity.</font></i>
+<i><font color="#9A1900">	"""</font></i>
+	n <font color="#990000">=</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+	diags<font color="#990000">=[]</font>
+	
+	<i><font color="#9A1900"># the right and left neighbours of the points </font></i>
+	left_points <font color="#990000">=</font> <b><font color="#000000">shift_right</font></b><font color="#990000">(</font><b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">))</font>
+	right_points <font color="#990000">=</font> <b><font color="#000000">shift_left</font></b><font color="#990000">(</font><b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">))</font>
+	
+	<i><font color="#9A1900"># the stack with the ears</font></i>
+	eartips <font color="#990000">=</font> <b><font color="#000000">filter</font></b><font color="#990000">(</font><b><font color="#0000FF">lambda</font></b> i<font color="#990000">:</font> <b><font color="#000000">diagonal</font></b><font color="#990000">(</font>i<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">,(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)%</font>n<font color="#990000">,</font>points<font color="#990000">),</font><b><font color="#000000">range</font></b><font color="#990000">(</font>n<font color="#990000">))</font>
+	
+	<b><font color="#0000FF">while</font></b> eartips <font color="#990000">!=</font> <font color="#990000">[]:</font>
+		<i><font color="#9A1900"># get an ear from the queue to cut</font></i>
+		eartip <font color="#990000">=</font> eartips<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+		
+		<i><font color="#9A1900"># the diagonal is the segment (ear_left,ear_right)</font></i>
+		ear_left <font color="#990000">=</font> left_points<font color="#990000">[</font>eartip<font color="#990000">]</font>
+		ear_right <font color="#990000">=</font> right_points<font color="#990000">[</font>eartip<font color="#990000">]</font>
+		<b><font color="#0000FF">print</font></b> <font color="#FF0000">"current ear: "</font><font color="#990000">,</font>eartip<font color="#990000">,</font><font color="#FF0000">" left:"</font><font color="#990000">,</font>ear_left<font color="#990000">,</font><font color="#FF0000">" right"</font><font color="#990000">,</font>ear_right
+		diags<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font><b><font color="#000000">VSegment_2</font></b><font color="#990000">(</font>points<font color="#990000">[</font>ear_left<font color="#990000">],</font>points<font color="#990000">[</font>ear_right<font color="#990000">]))</font>
+		
+		<i><font color="#9A1900"># color when cut an ear</font></i>
+		diags<font color="#990000">[</font><b><font color="#000000">len</font></b><font color="#990000">(</font>diags<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">].</font>color <font color="#990000">=</font> visual<font color="#990000">.</font>color<font color="#990000">.</font>red
+		points<font color="#990000">[</font>eartip<font color="#990000">].</font>color <font color="#990000">=</font> visual<font color="#990000">.</font>color<font color="#990000">.</font>yellow
+		segments<font color="#990000">[</font>eartip<font color="#990000">].</font>color <font color="#990000">=</font> visual<font color="#990000">.</font>color<font color="#990000">.</font>yellow
+		segments<font color="#990000">[</font>eartip<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">].</font>color <font color="#990000">=</font> visual<font color="#990000">.</font>color<font color="#990000">.</font>yellow
+		
+		<i><font color="#9A1900"># update the neighbours of ear_left, ear_right</font></i>
+		left_points<font color="#990000">[</font>ear_right<font color="#990000">]</font> <font color="#990000">=</font> ear_left
+		right_points<font color="#990000">[</font>ear_left<font color="#990000">]</font> <font color="#990000">=</font> ear_right
+		
+		<i><font color="#9A1900"># compute properties for ear_left, ear_right [O(n)] </font></i>
+		left_was_eartip <font color="#990000">=</font> <b><font color="#000000">is_in</font></b><font color="#990000">(</font>ear_left<font color="#990000">,</font>eartips<font color="#990000">)</font>
+		left_is_eartip <font color="#990000">=</font> <b><font color="#000000">diagonal</font></b><font color="#990000">(</font>left_points<font color="#990000">[</font>ear_left<font color="#990000">],</font>right_points<font color="#990000">[</font>ear_left<font color="#990000">],</font>points<font color="#990000">)</font>
+		right_was_eartip <font color="#990000">=</font> <b><font color="#000000">is_in</font></b><font color="#990000">(</font>ear_right<font color="#990000">,</font>eartips<font color="#990000">)</font>
+		right_is_eartip <font color="#990000">=</font> <b><font color="#000000">diagonal</font></b><font color="#990000">(</font>left_points<font color="#990000">[</font>ear_right<font color="#990000">],</font>right_points<font color="#990000">[</font>ear_right<font color="#990000">],</font>points<font color="#990000">)</font>
+		
+		<i><font color="#9A1900"># update the eartip property for ear_left, ear_right</font></i>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">not</font></b> left_was_eartip<font color="#990000">)</font> <b><font color="#0000FF">and</font></b> left_is_eartip<font color="#990000">:</font> 
+			   eartips<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font>ear_left<font color="#990000">)</font>
+		<b><font color="#0000FF">elif</font></b> left_was_eartip <b><font color="#0000FF">and</font></b> <font color="#990000">(</font><b><font color="#0000FF">not</font></b> left_is_eartip<font color="#990000">):</font>
+				 eartips<font color="#990000">.</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>ear_left<font color="#990000">)</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">not</font></b> right_was_eartip<font color="#990000">)</font> <b><font color="#0000FF">and</font></b> right_is_eartip<font color="#990000">:</font>
+			   eartips<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font>ear_right<font color="#990000">)</font>
+		<b><font color="#0000FF">elif</font></b> right_was_eartip <b><font color="#0000FF">and</font></b> <font color="#990000">(</font><b><font color="#0000FF">not</font></b> right_is_eartip<font color="#990000">):</font>
+				 eartips<font color="#990000">.</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>ear_right<font color="#990000">)</font>
+		
+		<b><font color="#0000FF">print</font></b> <font color="#FF0000">"eartips: "</font><font color="#990000">,</font>eartips
+		<b><font color="#000000">mouseClick</font></b><font color="#990000">()</font>
+	<b><font color="#0000FF">return</font></b> diags
+
+<i><font color="#9A1900">#########################</font></i>
+<i><font color="#9A1900"># testing the functions #</font></i>
+<i><font color="#9A1900">#########################</font></i>
+
+points<font color="#990000">,</font> segments <font color="#990000">=</font> <b><font color="#000000">getPolygon</font></b><font color="#990000">()</font>
+
+<i><font color="#9A1900"># if the polygon is not cw we make it</font></i>
+<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> <b><font color="#000000">is_cw</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+	points<font color="#990000">.</font><b><font color="#000000">reverse</font></b><font color="#990000">()</font>
+	segments<font color="#990000">.</font><b><font color="#000000">reverse</font></b><font color="#990000">()</font> 			
+
+<i><font color="#9A1900"># put labels to points</font></i>
+<b><font color="#000000">points_label</font></b><font color="#990000">(</font>points<font color="#990000">)</font>
+
+<i><font color="#9A1900"># fast triangualation if the polygon is simple</font></i>
+<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> <b><font color="#000000">is_simple</font></b><font color="#990000">(</font>points<font color="#990000">):</font>
+	<b><font color="#0000FF">print</font></b> <font color="#FF0000">"The polygon is not simple"</font>
+<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+	P<font color="#990000">=</font>points<font color="#990000">[:]</font>
+	visdiags<font color="#990000">=[]</font>
+	<b><font color="#0000FF">for</font></b> diag <b><font color="#0000FF">in</font></b> <b><font color="#000000">triangulate2</font></b><font color="#990000">(</font>P<font color="#990000">,</font>segments<font color="#990000">):</font>
+		d <font color="#990000">=</font> <b><font color="#000000">VSegment_2</font></b><font color="#990000">(</font>diag<font color="#990000">.</font><b><font color="#000000">start</font></b><font color="#990000">(),</font>diag<font color="#990000">.</font><b><font color="#000000">end</font></b><font color="#990000">())</font>
+		d<font color="#990000">.</font>color <font color="#990000">=</font> visual<font color="#990000">.</font>color<font color="#990000">.</font>red
+		visdiags<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font>d<font color="#990000">)</font>
+</tt></pre>
