@@ -1,7 +1,0 @@
-plugins:
-  - jekyll-minifier
-
-jekyll-minifier:
-  remove_comments: true
-  compress_css: true
-  compress_javascript: true
