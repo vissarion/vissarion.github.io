@@ -1,0 +1,11 @@
+.bundle
+.projections.json
+.ruby-gemset
+.ruby-version
+Gemfile.lock
+doc/
+.yardoc/
+pkg/
+rdoc/
+coverage/
+vendor/bundle/

@@ -1,0 +1,144 @@
+# Conference venues
+"SoCG":
+  url: https://www.computational-geometry.org/
+  color: "#00369f"
+
+"ISSAC":
+  url: https://www.issac-conference.org/
+  color: "#00369f"
+
+"ESA":
+  url: https://algo-conference.org/
+  color: "#009f36"
+
+"ISCO":
+  url: https://www.isco-conference.org/
+  color: "#8b4513"
+
+"ICMS":
+  url: https://icms-conference.org/
+  color: "#2e4057"
+
+"FOSS4G":
+  url: https://foss4g.org/
+  color: "#4a6741"
+
+"MACIS":
+  url: https://www.macis-conference.org/
+  color: "#2e4057"
+
+"ITAB":
+  url: https://ieeexplore.ieee.org/xpl/conhome/1000572/all-proceedings
+  color: "#663399"
+
+"MEGA":
+  url: https://mega-conference.org/
+  color: "#00369f"
+
+"Curves & Surfaces":
+  url: https://curves-and-surfaces.org/
+  color: "#555555"
+
+"AISTATS":
+  url: https://aistats.org/
+  color: "#8b0000"
+
+"EGU":
+  url: https://www.egu.eu/
+  color: "#2e6b8a"
+
+"ISPRS":
+  url: https://www.isprs.org/
+  color: "#2e4057"
+
+"CMSB":
+  url: https://cmsb.sciencesconf.org/
+  color: "#4a6741"
+
+"EURO":
+  url: https://www.euro-online.org/
+  color: "#00369f"
+
+"ISMB/ECCB":
+  url: https://www.iscb.org/ismbeccb2021
+  color: "#6b4e2e"
+
+# Journal venues
+"JOSS":
+  url: https://joss.theoj.org/
+  color: "#009f36"
+
+"Bioinform. Adv.":
+  url: https://academic.oup.com/bioinformaticsadvances
+  color: "#00369f"
+
+"BIT":
+  url: https://www.springer.com/journal/10543
+  color: "#00369f"
+
+"ACM TOMS":
+  url: https://dl.acm.org/journal/toms
+  color: "#00369f"
+
+"ACM JEA":
+  url: https://dl.acm.org/journal/jea
+  color: "#00369f"
+
+"ACM CCA":
+  url: https://dl.acm.org/journal/cca
+  color: "#00369f"
+
+"Comput. Geom.":
+  url: https://www.journals.elsevier.com/computational-geometry
+  color: "#00369f"
+
+"Linear Algebra Appl.":
+  url: https://www.journals.elsevier.com/linear-algebra-and-its-applications
+  color: "#8b0000"
+
+"R Journal":
+  url: https://journal.r-project.org/
+  color: "#276dc2"
+
+"Math. Program. Comp.":
+  url: https://www.springer.com/journal/12532
+  color: "#009f36"
+
+"Global Ecol. Biogeogr.":
+  url: https://onlinelibrary.wiley.com/journal/14668238
+  color: "#4a6741"
+
+"IJCGA":
+  url: https://www.worldscientific.com/worldscinet/ijcga
+  color: "#00369f"
+
+"J. Symb. Comput.":
+  url: https://www.journals.elsevier.com/journal-of-symbolic-computation
+  color: "#00369f"
+
+# Other
+"arXiv":
+  url: https://arxiv.org/
+  color: "#b31b1b"
+
+"Tech. Report":
+  color: "#777777"
+
+# Talk venues
+"FOSDEM":
+  color: "#8b0000"
+
+"NumFOCUS Summit":
+  color: "#2e6b8a"
+
+"GSoC":
+  color: "#4a6741"
+
+"MySQL":
+  color: "#f29111"
+
+"Invited Talk":
+  color: "#555555"
+
+"Internship, INRIA":
+  color: "#6b4e2e"

@@ -1,0 +1,61 @@
+- title: "volesti"
+  description: >
+    C++ library (with R bindings) for high-dimensional sampling and volume computation
+    on convex bodies. Implements geometric random walks (Hit-and-Run, Billiard Walk,
+    Hamiltonian Monte Carlo), volume estimation algorithms, and uniform/Gaussian sampling.
+    Released on CRAN as the R package `volesti`.
+  repo_url: https://github.com/GeomScale/volesti
+  docs_url: https://geomscale.github.io/volesti/
+  paper_url: https://doi.org/10.21105/joss.07886
+  language: C++ / R
+
+- title: "Boost.Geometry"
+  description: >
+    Generic C++ geometry library, part of the Boost C++ Libraries collection. Provides
+    geometric algorithms (distance, intersection, union, convex hull, etc.) for Cartesian
+    and geographic coordinate systems. Core developer since 2016 — contributed geodesic
+    algorithms, robust predicates, and spatial index improvements.
+  repo_url: https://github.com/boostorg/geometry
+  docs_url: https://www.boost.org/doc/libs/release/libs/geometry/
+  paper_url: https://doi.org/10.21105/joss.10328
+  language: C++
+
+- title: "Dingo"
+  description: >
+    Python package for sampling the flux space of metabolic networks using geometric
+    random walks. Provides fast MCMC methods to sample steady-state flux distributions
+    in genome-scale metabolic models, enabling statistical analysis of metabolic
+    phenotypes.
+  repo_url: https://github.com/GeomScale/dingo
+  docs_url: https://geomscale.github.io/dingo/
+  paper_url: https://doi.org/10.1093/bioadv/vbae037
+  language: Python
+
+- title: "Volume Approximation"
+  description: >
+    Open-source C++ software for practical volume approximation of convex polytopes
+    in high dimensions. Implements randomized algorithms with theoretical guarantees,
+    using geometric random walks and simulated annealing. Applied to financial
+    portfolio analysis and metabolic network modeling.
+  repo_url: https://github.com/vissarion/volume_approximation
+  paper_url: https://doi.org/10.1145/3194656
+  language: C++
+
+- title: "ResPol"
+  description: >
+    Software package for computing projections of Newton polytopes of the sparse
+    resultant. Implements oracle-based output-sensitive algorithms for high-dimensional
+    polytope computation. Used in computational algebraic geometry and elimination
+    theory.
+  repo_url: https://sourceforge.net/projects/respol/
+  paper_url: https://doi.org/10.1142/S0218195913600108
+  language: C++
+
+- title: "HeaDDaCHe"
+  description: >
+    Hashed Dynamic Determinant Computation for faster geometric algorithms. Implements
+    a caching scheme for sequences of determinantal predicates used in convex hull
+    computation, point location, and other geometric primitives, achieving significant
+    speedups over direct determinant evaluation.
+  paper_url: https://doi.org/10.1016/j.comgeo.2015.12.001
+  language: C++
