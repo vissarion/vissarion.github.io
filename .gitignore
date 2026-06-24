@@ -5,3 +5,4 @@ vendor/
 .jekyll-cache/
 .bundle/
 *.gem
+.bundle/
