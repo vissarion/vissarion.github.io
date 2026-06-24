@@ -1,9 +1,0 @@
-github_users:
-  - vissarion
-
-repo_description_lines_max: 2
-
-github_repos:
-  - vissarion/volume_approximation
-  - GeomScale/volesti
-  - GeomScale/volume_approximation
