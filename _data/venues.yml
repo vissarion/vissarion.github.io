@@ -24,7 +24,7 @@
   color: "#4a6741"
 
 "MACIS":
-  url: https://www.macis-conference.org/
+  url: https://link.springer.com/book/10.1007/978-3-030-43120-4
   color: "#2e4057"
 
 "ITAB":
@@ -32,7 +32,7 @@
   color: "#663399"
 
 "MEGA":
-  url: https://mega-conference.org/
+  url: https://mega.sciencesconf.org/
   color: "#00369f"
 
 "Curves & Surfaces":
@@ -85,7 +85,7 @@
   color: "#00369f"
 
 "ACM CCA":
-  url: https://dl.acm.org/journal/cca
+  url: https://dl.acm.org/newsletter/sigsam-cca
   color: "#00369f"
 
 "Comput. Geom.":
