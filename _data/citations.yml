@@ -1,10 +1,14 @@
 metadata:
-  last_updated: '2026-07-08'
+  last_updated: '2026-07-29'
 papers:
   Tro-X7MAAAAJ:0CzhzZyukY4C:
     citations: 0
     title: "E\uFB00icient sampling in spectrahedra and volume approximation"
     year: Unknown Year
+  Tro-X7MAAAAJ:1lhNe0rCu4AC:
+    citations: 64
+    title: Practical polytope volume approximation
+    year: '2018'
   Tro-X7MAAAAJ:3htObqc8RwsC:
     citations: 15
     title: Enumeration of 2-level polytopes
@@ -30,9 +34,9 @@ papers:
     title: Fast floating-point filters for robust predicates
     year: '2023'
   Tro-X7MAAAAJ:6ZxmRoH8BuwC:
-    citations: 116
-    title: Practical polytope volume approximation
-    year: '2018'
+    citations: 60
+    title: Efficient random-walk methods for approximating polytope volume
+    year: '2014'
   Tro-X7MAAAAJ:8d8msizDQcsC:
     citations: 51
     title: Biogeographical, environmental and anthropogenic determinants of global patterns in bird taxonomic and trait turnover
@@ -40,7 +44,7 @@ papers:
   Tro-X7MAAAAJ:8k81kl-MbHgC:
     citations: 8
     title: Efficient edge-skeleton computation for polytopes defined by oracles
-    year: '2016'
+    year: '2014'
   Tro-X7MAAAAJ:9c2xU6iGI7YC:
     citations: 13
     title: Practical volume estimation by a new annealing schedule for cooling convex bodies
@@ -54,7 +58,7 @@ papers:
     title: 'dingo: a Python package for metabolic flux sampling'
     year: '2024'
   Tro-X7MAAAAJ:ALROH1vI_8AC:
-    citations: 1
+    citations: 2
     title: 'Boost. Geometry: A Generic C++ Geometry Library'
     year: '2026'
   Tro-X7MAAAAJ:Aul-kAQHnToC:
@@ -78,7 +82,7 @@ papers:
     title: Fast robust arithmetics for geometric algorithms and applications to GIS
     year: '2021'
   Tro-X7MAAAAJ:F1b5ZUV5XREC:
-    citations: 13
+    citations: 14
     title: Truncated log-concave sampling for convex bodies with reflective Hamiltonian Monte Carlo
     year: '2023'
   Tro-X7MAAAAJ:F9fV5C73w3QC:
@@ -198,7 +202,7 @@ papers:
     title: An implementation of range trees with fractional cascading in C++
     year: '2011'
   Tro-X7MAAAAJ:fbc8zXXH2BUC:
-    citations: 28
+    citations: 29
     title: Practical volume approximation of high-dimensional convex bodies, applied to modeling portfolio dependencies and financial crises
     year: '2023'
   Tro-X7MAAAAJ:hqOjcs7Dif8C:
