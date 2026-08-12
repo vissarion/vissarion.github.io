@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-29'
+  last_updated: '2026-08-12'
 papers:
   Tro-X7MAAAAJ:0CzhzZyukY4C:
     citations: 0
@@ -10,7 +10,7 @@ papers:
     title: Practical polytope volume approximation
     year: '2018'
   Tro-X7MAAAAJ:3htObqc8RwsC:
-    citations: 15
+    citations: 14
     title: Enumeration of 2-level polytopes
     year: '2015'
   Tro-X7MAAAAJ:48xauSegjOkC:
@@ -38,13 +38,13 @@ papers:
     title: Efficient random-walk methods for approximating polytope volume
     year: '2014'
   Tro-X7MAAAAJ:8d8msizDQcsC:
-    citations: 51
+    citations: 52
     title: Biogeographical, environmental and anthropogenic determinants of global patterns in bird taxonomic and trait turnover
     year: '2017'
   Tro-X7MAAAAJ:8k81kl-MbHgC:
     citations: 8
     title: Efficient edge-skeleton computation for polytopes defined by oracles
-    year: '2014'
+    year: '2016'
   Tro-X7MAAAAJ:9c2xU6iGI7YC:
     citations: 13
     title: Practical volume estimation by a new annealing schedule for cooling convex bodies
@@ -82,11 +82,11 @@ papers:
     title: Fast robust arithmetics for geometric algorithms and applications to GIS
     year: '2021'
   Tro-X7MAAAAJ:F1b5ZUV5XREC:
-    citations: 14
-    title: Truncated log-concave sampling for convex bodies with reflective Hamiltonian Monte Carlo
+    citations: 15
+    title: Truncated log-concave sampling for convex bodies with Reflective Hamiltonian Monte Carlo
     year: '2023'
   Tro-X7MAAAAJ:F9fV5C73w3QC:
-    citations: 16
+    citations: 15
     title: Geometric algorithms for sampling the flux space of metabolic networks
     year: '2021'
   Tro-X7MAAAAJ:GFxP56DSvIMC:
@@ -134,7 +134,7 @@ papers:
     title: "Documentation for R package \u2018volesti\u2019"
     year: '2021'
   Tro-X7MAAAAJ:OR75R8vi5nAC:
-    citations: 4
+    citations: 5
     title: Practical volume estimation of zonotopes by a new annealing schedule for cooling convex bodies
     year: '2020'
   Tro-X7MAAAAJ:OcBU2YAGkTUC:
@@ -170,7 +170,7 @@ papers:
     title: Meshing of triplyperiodic smooth surfaces in CGAL
     year: '2010'
   Tro-X7MAAAAJ:_5tno0g5mFcC:
-    citations: 27
+    citations: 26
     title: An output-sensitive algorithm for computing projections of resultant polytopes
     year: '2012'
   Tro-X7MAAAAJ:_FM0Bhl9EiAC:
@@ -202,7 +202,7 @@ papers:
     title: An implementation of range trees with fractional cascading in C++
     year: '2011'
   Tro-X7MAAAAJ:fbc8zXXH2BUC:
-    citations: 29
+    citations: 32
     title: Practical volume approximation of high-dimensional convex bodies, applied to modeling portfolio dependencies and financial crises
     year: '2023'
   Tro-X7MAAAAJ:hqOjcs7Dif8C:
