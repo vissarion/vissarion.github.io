@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-08-12'
+  last_updated: '2026-08-19'
 papers:
   Tro-X7MAAAAJ:0CzhzZyukY4C:
     citations: 0
     title: "E\uFB00icient sampling in spectrahedra and volume approximation"
     year: Unknown Year
   Tro-X7MAAAAJ:1lhNe0rCu4AC:
-    citations: 64
+    citations: 65
     title: Practical polytope volume approximation
     year: '2018'
   Tro-X7MAAAAJ:3htObqc8RwsC:
@@ -42,7 +42,7 @@ papers:
     title: Biogeographical, environmental and anthropogenic determinants of global patterns in bird taxonomic and trait turnover
     year: '2017'
   Tro-X7MAAAAJ:8k81kl-MbHgC:
-    citations: 8
+    citations: 9
     title: Efficient edge-skeleton computation for polytopes defined by oracles
     year: '2016'
   Tro-X7MAAAAJ:9c2xU6iGI7YC:
@@ -62,7 +62,7 @@ papers:
     title: 'Boost. Geometry: A Generic C++ Geometry Library'
     year: '2026'
   Tro-X7MAAAAJ:Aul-kAQHnToC:
-    citations: 7
+    citations: 8
     title: Randomized geometric tools for anomaly detection in stock markets
     year: '2023'
   Tro-X7MAAAAJ:Bg7qf7VwUHIC:
@@ -138,7 +138,7 @@ papers:
     title: Practical volume estimation of zonotopes by a new annealing schedule for cooling convex bodies
     year: '2020'
   Tro-X7MAAAAJ:OcBU2YAGkTUC:
-    citations: 62
+    citations: 63
     title: 'volesti: Volume approximation and sampling for convex polytopes in R'
     year: '2021'
   Tro-X7MAAAAJ:QYdC8u9Cj1oC:
