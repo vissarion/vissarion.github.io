@@ -46,7 +46,7 @@ latest_posts:
 
 Spent a decade at Oracle/MySQL, developing geometric algorithms for GIS in [Boost.Geometry](https://www.boost.org/doc/libs/1_64_0/libs/geometry/doc/html/index.html) and [MySQL](https://www.mysql.com/).
 
-Previously, was a postdoctoral researcher in the [Algorithms Research Group](https://algo.ulb.be) at [Université libre de Bruxelles (ULB)](https://www.ulb.be/en), working with Prof. [Samuel Fiorini](https://samuel.fiorini.web.ulb.be) on combinatorial optimization and polyhedral combinatorics [[1]]({{ "/publications/#BFFFMK15" | relative_url }})[[2]]({{ "/publications/#FFM16" | relative_url }})[[3]]({{ "/publications/#BFFFMK16j" | relative_url }}). Before that, was a visiting researcher at the National Institute for Mathematical Sciences in South Korea and a researcher at the University of Athens.
+Previously, was a postdoctoral researcher in the [Algorithms Research Group](https://algo.ulb.be) at [Université libre de Bruxelles (ULB)](https://www.ulb.be/en), working with Prof. [Samuel Fiorini](https://samuel.fiorini.web.ulb.be) on combinatorial optimization and polyhedral combinatorics. Before that, was a visiting researcher at the National Institute for Mathematical Sciences in South Korea and a researcher at the University of Athens.
 
 Holds a PhD in Computer Science from the [University of Athens](https://en.uoa.gr/), supervised by Prof. [Ioannis Emiris](https://cgi.di.uoa.gr/~emiris/index-eng.html), an MSc in Logic, Algorithms and Computation from the University of Athens, and a Diploma (5-year degree) in Computer Engineering & Computer Science from [CEID, University of Patras](https://www.ceid.upatras.gr/).
 
