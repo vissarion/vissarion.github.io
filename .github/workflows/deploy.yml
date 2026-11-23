@@ -70,7 +70,7 @@ jobs:
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
+          ruby-version: "3.3.14"
           bundler-cache: false
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
