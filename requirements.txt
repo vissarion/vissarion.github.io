@@ -1,4 +1,5 @@
+# scholarly imports bibtexparser.bibdatabase, removed in bibtexparser 2.x
+bibtexparser<2
 nbconvert
 pyyaml
-rendercv[full]
 scholarly
