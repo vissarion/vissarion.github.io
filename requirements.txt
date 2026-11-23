@@ -2,5 +2,4 @@
 bibtexparser<2
 nbconvert
 pyyaml
-rendercv[full]
 scholarly
