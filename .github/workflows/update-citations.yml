@@ -7,6 +7,10 @@ on:
     - cron: "0 0 * * 5" # Friday
   workflow_dispatch:
 
+permissions:
+  contents: write # push the updated citations.yml
+  actions: write # keepalive: re-enable this workflow
+
 jobs:
   update-citations:
     runs-on: ubuntu-latest
@@ -58,6 +62,7 @@ jobs:
           else
             echo "❌ Citation update script failed with exit code $status (started at $start_time, ended at $end_time)."
             echo "❌ Citation update script failed with exit code $status." >> $GITHUB_STEP_SUMMARY
+            echo "failed=true" >> $GITHUB_OUTPUT
           fi
           set -e
 
@@ -99,3 +104,19 @@ jobs:
             git commit -m "Update Google Scholar citations"
             git push
           )
+
+      # GitHub disables scheduled workflows after 60 days without repository
+      # activity; re-enabling via the API resets that counter without a commit.
+      - name: Keep scheduled workflow alive
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/update-citations.yml/enable"
+
+      # Fail last, after the keepalive, so a broken script turns the run red
+      # (and sends a notification) instead of passing silently.
+      - name: Fail if citation update failed
+        if: steps.run_citation_update.outputs.failed == 'true'
+        run: |
+          echo "::error::bin/update_scholar_citations.py failed; see the 'Run citation update script' step."
+          exit 1
