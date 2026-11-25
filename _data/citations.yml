@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-08-19'
+  last_updated: '2026-11-25'
 papers:
   Tro-X7MAAAAJ:0CzhzZyukY4C:
     citations: 0
     title: "E\uFB00icient sampling in spectrahedra and volume approximation"
     year: Unknown Year
   Tro-X7MAAAAJ:1lhNe0rCu4AC:
-    citations: 65
+    citations: 67
     title: Practical polytope volume approximation
     year: '2018'
   Tro-X7MAAAAJ:3htObqc8RwsC:
@@ -30,11 +30,11 @@ papers:
     title: Counting linear extensions with volume computation
     year: '2022'
   Tro-X7MAAAAJ:5MTHONV0fEkC:
-    citations: 3
+    citations: 5
     title: Fast floating-point filters for robust predicates
     year: '2023'
   Tro-X7MAAAAJ:6ZxmRoH8BuwC:
-    citations: 60
+    citations: 62
     title: Efficient random-walk methods for approximating polytope volume
     year: '2014'
   Tro-X7MAAAAJ:8d8msizDQcsC:
@@ -44,7 +44,7 @@ papers:
   Tro-X7MAAAAJ:8k81kl-MbHgC:
     citations: 9
     title: Efficient edge-skeleton computation for polytopes defined by oracles
-    year: '2016'
+    year: '2014'
   Tro-X7MAAAAJ:9c2xU6iGI7YC:
     citations: 13
     title: Practical volume estimation by a new annealing schedule for cooling convex bodies
@@ -58,7 +58,7 @@ papers:
     title: 'dingo: a Python package for metabolic flux sampling'
     year: '2024'
   Tro-X7MAAAAJ:ALROH1vI_8AC:
-    citations: 2
+    citations: 3
     title: 'Boost. Geometry: A Generic C++ Geometry Library'
     year: '2026'
   Tro-X7MAAAAJ:Aul-kAQHnToC:
@@ -82,15 +82,15 @@ papers:
     title: Fast robust arithmetics for geometric algorithms and applications to GIS
     year: '2021'
   Tro-X7MAAAAJ:F1b5ZUV5XREC:
-    citations: 15
+    citations: 16
     title: Truncated log-concave sampling for convex bodies with Reflective Hamiltonian Monte Carlo
     year: '2023'
   Tro-X7MAAAAJ:F9fV5C73w3QC:
-    citations: 15
+    citations: 16
     title: Geometric algorithms for sampling the flux space of metabolic networks
     year: '2021'
   Tro-X7MAAAAJ:GFxP56DSvIMC:
-    citations: 5
+    citations: 6
     title: Efficient sampling in spectrahedra and volume approximation
     year: '2022'
   Tro-X7MAAAAJ:HIFyuExEbWQC:
@@ -138,7 +138,7 @@ papers:
     title: Practical volume estimation of zonotopes by a new annealing schedule for cooling convex bodies
     year: '2020'
   Tro-X7MAAAAJ:OcBU2YAGkTUC:
-    citations: 63
+    citations: 64
     title: 'volesti: Volume approximation and sampling for convex polytopes in R'
     year: '2021'
   Tro-X7MAAAAJ:QYdC8u9Cj1oC:
@@ -230,7 +230,7 @@ papers:
     title: "E\uFB00icient Sampling from Feasible Sets of SDPs and Volume Approximation"
     year: Unknown Year
   Tro-X7MAAAAJ:nZcligLrVowC:
-    citations: 10
+    citations: 11
     title: A practical algorithm for volume estimation based on billiard trajectories and simulated annealing
     year: '2023'
   Tro-X7MAAAAJ:otzGkya1bYkC:
